@@ -2,11 +2,9 @@
 /**
 * main - Entry function
 *
-* ac: used to accept command from shell
-* av: used to accept command from shell
-*
-* Return: 0 
+* Return:0
 */
+
 int main(int ac, char **av)
 {
 	printf("Size of a char: %d byte(s)\n", sizeof(char));
