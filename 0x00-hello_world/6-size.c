@@ -2,6 +2,9 @@
 /**
 * main - Entry function
 *
+*@ac: is used for to accept values from the shell command
+*@av: is used for to accept values from the shell command
+*
 * Return:0
 */
 
