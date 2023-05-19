@@ -24,8 +24,8 @@ putchar(' ');
 }
 }
 }
-putchar('\n');
 four++;
 } while (four < 100);
+putchar('\n');
 return (0);
 }
