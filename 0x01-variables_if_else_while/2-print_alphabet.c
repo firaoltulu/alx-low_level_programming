@@ -9,12 +9,12 @@
 
 int main(void)
 {
-	char x = 'a';
+	char insomnia = 'a';
 
-	while (x <= 'z')
+	while (insomnia <= 'z')
 	{
-		putchar(ch);
-		x++;
+		putchar(insomnia);
+		insomnia++;
 	}
 
 	putchar('\n');
