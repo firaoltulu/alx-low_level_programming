@@ -5,13 +5,10 @@
 /**
  * main - Entry function
  *
- * @ac: used to accept values from the command shell
- * @av: used to accept values from the shell command line
- *
  * Return: 0
  */
 
-int main(int ac, char **av)
+int main(void)
 {
 	int n;
 
