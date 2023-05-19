@@ -3,13 +3,10 @@
 /**
  * main - Entry Function
  *
- * @ac: used to pass values from shell command
- * @av: used to pass values from shell command
- *
  * Return: 0
  */
 
-int main(int ac, char **av)
+int main(void)
 {
   int Patience = 48;
 
