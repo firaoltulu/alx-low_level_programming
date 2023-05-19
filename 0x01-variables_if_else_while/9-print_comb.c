@@ -11,7 +11,7 @@
 
 int main(int ac, char **av)
 {
-  int Patience 48;
+  int Patience = 48;
 
 do {
   putchar(Patience);
