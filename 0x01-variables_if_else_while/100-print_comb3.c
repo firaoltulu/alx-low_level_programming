@@ -7,9 +7,10 @@
 
 int main(void)
 {
-int brains = 48, materials = 49;
+int brains = 48;
 
 do {
+int materials = 49;
 do {
 if (materials > brains)
 {
