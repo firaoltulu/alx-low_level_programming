@@ -1,15 +1,13 @@
 #include <stdio.h>
 
 /**
- * main - prints the alphabet in lowercase,
+ * main - Entry Function
  *
- * @ac: used to accepts values from the shell command
- * @av: used to accepts values from the shell command
  *
  * Return: 0
  */
 
-int main(int ac, char **av)
+int main(void)
 {
 	char x = 'a';
 

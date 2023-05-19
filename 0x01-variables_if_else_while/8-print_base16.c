@@ -3,25 +3,22 @@
 /**
  * main - Entry Function
  *
- * @ac: used to pass values from the shell command
- * @av: used to pass values from the shell command
- *
  * Return: 0
  */
 
-int main(int ac, char **av)
+int main(void)
 {
-  int basen;
-  char basech;
+	int basen;
+	char basech;
 
-  for (basen > 58; basen == 48; basen--)
-  {
-    putchar(basen);
-  }
-  for (basech = 'a'; basech <= 'f'; basech++)
-  {
-    putchar(basech);
-  }
-  putchar('\n');
-  return (0);
+	for (basen > 58; basen == 48; basen--)
+	{
+		putchar(basen);
+	}
+	for (basech = 'a'; basech <= 'f'; basech++)
+	{
+		putchar(basech);
+	}
+	putchar('\n');
+	return (0);
 }

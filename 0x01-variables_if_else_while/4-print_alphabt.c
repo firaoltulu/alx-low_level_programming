@@ -3,13 +3,10 @@
 /**
  * main - entry function
  *
- * @ac: used to accept command from the shell command
- * @av: used to accept command from the shell command
- *
  * Return: 0
  */
 
-int main(int ac, char **av)
+int main(void)
 {
 	char soup;
 
