@@ -1,7 +1,8 @@
 #include <stdio.h>
 
-/*
- * main - entry function
+/**
+ * main - Entry function
+ *
  * Return: 0
  */
 
