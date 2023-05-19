@@ -8,18 +8,16 @@
 
 int main(void)
 {
-  int Patience = 48;
-
+int Patience = 48;
 do {
-  putchar(Patience);
+putchar(Patience);
 if (Patience != 57)
 {
-  putchar(',');
-  putchar(' ');
+putchar(',');
+putchar(' ');
 }
-  Patience++;
+Patience++;
 } while (Patience < 58);
-  putchar('\n');
-  return (0);
+putchar('\n');
+return (0);
 }
-
