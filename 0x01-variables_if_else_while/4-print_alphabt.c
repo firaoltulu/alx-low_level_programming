@@ -17,7 +17,6 @@ int main(void)
 		{
 			putchar(soup);
 		}
-		soup++;
 	}
 
 	putchar('\n');
