@@ -8,12 +8,13 @@
 
 int main(void)
 {
-	int basen;
+	int basen = 48;
 	char basech;
 
-	for (basen > 58; basen == 48; basen--)
+	while (basen < 58)
 	{
 		putchar(basen);
+		basen++;
 	}
 	for (basech = 'a'; basech <= 'f'; basech++)
 	{
