@@ -11,7 +11,7 @@
 
 void print_times_table(int n)
 {
-int one, two, multi;
+int one, two, k;
 
 if (n >= 0 && n <= 15)
 {
@@ -19,7 +19,7 @@ for (one = 0; one <= n; one++)
 {
 for (two = 0; two <= n; two++)
 {
-multi = two * one;
+k = two * one;
 if (two == 0)
 {
 _putchar(k + '0');
