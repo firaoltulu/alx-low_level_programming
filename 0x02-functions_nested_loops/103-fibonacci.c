@@ -22,6 +22,7 @@ next = ten + nine;
 ten = nine;
 nine = next;
 }
+return (sum);
 }
 
 /**
