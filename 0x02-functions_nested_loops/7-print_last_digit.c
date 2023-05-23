@@ -10,9 +10,13 @@ int print_last_digit(int n)
 {
 	int five;
 
-	n < 0 ? n = -n : n = n;
+	if (n < 0)
+		n = -n;
+
 	five = n % 10;
-	five < 0 ? five = -five : five = five;
+
+	if (five < 0)
+		five = -five;
 
 	_putchar(five + '0');
 	return (five);
