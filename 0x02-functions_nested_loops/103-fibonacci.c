@@ -34,7 +34,7 @@ return (sum);
 int main(void)
 {
 
-int sum = fir_sum();
+unsigned long int sum = fir_sum();
 
 printf("%lu\n", sum);
 
