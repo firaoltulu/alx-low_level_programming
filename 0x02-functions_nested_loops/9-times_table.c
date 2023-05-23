@@ -11,10 +11,11 @@ void times_table(void)
 {
 	int multi;
 	int seven = 0;
+	int eight;
 
 	while (seven < 10)
 	{
-		for (int eight = 0; eight < 10; eight++)
+		for (eight = 0; eight < 10; eight++)
 		{
 
 			multi = seven * eight;
