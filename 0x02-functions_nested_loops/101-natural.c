@@ -1,24 +1,9 @@
 #include <stdio.h>
 /**
- * main - Entry function
- *
- * Return: 0.
- */
-int main(void)
-{
-int sum = fir_sum();
-
-printf("%d\n", sum);
-
-return (0);
-}
-
-/**
  * fir_sum - adds the number that are divide able by 3 & 5 between 0 & 1024
  *
  * Return: the sum.
  */
-
 int fir_sum(void)
 {
 int two = 0, sum = 0;
@@ -33,3 +18,17 @@ two++;
 return (sum);
 }
 
+/**
+ * main - Entry function
+ *
+ * Return: 0.
+ */
+
+int main(void)
+{
+int sum = fir_sum();
+
+printf("%d\n", sum);
+
+return (0);
+}
