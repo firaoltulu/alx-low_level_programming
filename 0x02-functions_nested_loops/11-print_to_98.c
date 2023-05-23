@@ -9,23 +9,10 @@
  */
 void print_to_98(int n)
 {
-int two;
-int down;
-switch (n)
-{
-case 98:
-down = 1;
-break;
-case 9:
-down = -1;
-break;
-default:
-down = 0;
-break;
-}
 
 if (n <= 98)
 {
+int two;
 for (two = n; two <= 98; two++)
 {
 if (two != 98)
@@ -36,6 +23,7 @@ printf("%d\n", two);
 }
 else if (n >= 98)
 {
+int two;
 for (two = n; two >= 98; two--)
 {
 if (two != 98)
@@ -48,4 +36,3 @@ else
 {
 }
 }
-
