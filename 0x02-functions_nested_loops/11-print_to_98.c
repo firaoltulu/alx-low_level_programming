@@ -9,45 +9,43 @@
  */
 void print_to_98(int n)
 {
-	int two;
-	bool down;
+int two;
+int down;
+switch (n)
+{
+case n <= 98:
+down = 1;
+break;
+case n >= 98:
+down = -1;
+break;
+default:
+down = 0;
+break;
+}
 
-	switch (n)
-	{
-		case n <= 98:
-			down = true;
-			break;
-		case n >= 98:
-			down = false;
-			break;
-
-		default:
-		break;
-	}
-
-	if (down)
-	{
-		for (two = n; two <= 98; two++)
-		{
-			if (two != 98)
-				printf("%d, ", two);
-			else if (two == 98)
-				printf("%d\n", two);
-		}
-	}
-	else if (!down)
-	{
-		for (two = n; two >= 98; two--)
-		{
-			if (two != 98)
-				printf("%d, ", two);
-			else if (two == 98)
-				printf("%d\n", two);
-		}
-	}
-	else
-	{
-
-	}
+if (down == 1)
+{
+for (two = n; two <= 98; two++)
+{
+if (two != 98)
+printf("%d, ", two);
+else if (two == 98)
+printf("%d\n", two);
+}
+}
+else if (down == -1)
+{
+for (two = n; two >= 98; two--)
+{
+if (two != 98)
+printf("%d, ", two);
+else if (two == 98)
+printf("%d\n", two);
+}
+}
+else
+{
+}
 }
 
