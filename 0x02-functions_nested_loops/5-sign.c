@@ -18,12 +18,12 @@ int print_sign(int n)
 			_putchar('+');
 			return (1);
 		case n == 0:
-			_putchar(48);
+			_putchar('0');
 			return (0);
 		case n < 0:
 			_putchar('-');
 			return (-1);
 		default:
-		break;
+		return (2);
 	}
 }
