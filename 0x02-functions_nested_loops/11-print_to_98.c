@@ -13,10 +13,10 @@ int two;
 int down;
 switch (n)
 {
-case n <= 98:
+case 98:
 down = 1;
 break;
-case n >= 98:
+case 9:
 down = -1;
 break;
 default:
@@ -24,7 +24,7 @@ down = 0;
 break;
 }
 
-if (down == 1)
+if (n <= 98)
 {
 for (two = n; two <= 98; two++)
 {
@@ -34,7 +34,7 @@ else if (two == 98)
 printf("%d\n", two);
 }
 }
-else if (down == -1)
+else if (n >= 98)
 {
 for (two = n; two >= 98; two--)
 {
