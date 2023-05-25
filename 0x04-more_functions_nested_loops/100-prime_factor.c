@@ -8,9 +8,9 @@
  */
 int main(void)
 {
-long long int number = 612852475143;
-long long int two = 2;
-long long int one = 0;
+long int number = 612852475143;
+long int two = 2;
+long int one = 0;
 
 while (number != 1)
 {
@@ -24,7 +24,7 @@ one = two;
 }
 two++;
 }
-printf("%lld", one);
+printf("%ld", one);
 printf("\n");
 return (0);
 }
