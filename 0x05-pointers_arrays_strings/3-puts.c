@@ -10,7 +10,7 @@ void _puts(char *str)
 {
 	while (*str != '\0')
 	{
-		printf(*str++);
+		putchar(*str++);
 	}
-	puts('\n');
+	putchar('\n');
 }
