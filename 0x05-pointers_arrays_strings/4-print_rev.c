@@ -16,12 +16,10 @@ three++;
 s++;
 }
 s--;
-four = three;
-do {
+for (four = three; four > 0; four--)
+{
 _putchar(*s);
 s--;
-four--;
-} while (four > 0);
-
+}
 _putchar('\n');
 }
