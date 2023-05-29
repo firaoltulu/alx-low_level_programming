@@ -18,10 +18,10 @@ s++;
 s--;
 four = three;
 do {
-putchar(*s);
+_putchar(*s);
 s--;
 four--;
 } while (four > 0);
 
-putchar('\n');
+_putchar('\n');
 }
