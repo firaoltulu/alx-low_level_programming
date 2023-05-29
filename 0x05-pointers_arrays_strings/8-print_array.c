@@ -17,7 +17,7 @@ for (three = 0; three <= (n - 1); three++)
 {
 if (three == (n - 1))
 {
-printf("%d ", a[three]);
+printf("%d", a[three]);
 }
 else
 {
