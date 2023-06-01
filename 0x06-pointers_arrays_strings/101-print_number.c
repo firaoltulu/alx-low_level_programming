@@ -8,7 +8,7 @@
 
 void print_number(int n)
 {
-unsigned int nine = n;
+int nine = n;
 
 
 if (n < 0)
