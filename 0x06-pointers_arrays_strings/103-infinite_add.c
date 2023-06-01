@@ -1,101 +1,88 @@
 #include "main.h"
 
 /**
- * infinite_add - add 2 numbers together
+ * firaol - Fuction for betty checker to pass
+ * @n: Char pointer that points to the variable
+ * that is passed to this function to be changed.
+ * Return: nothing (void)
+ */
+
+void firaol(char *four)
+{
+int one = 0;
+int two = 0;
+char three;
+
+while (*(four + one) != '\0')
+{
+one++;
+}
+one--;
+for (two = 0; two < one; two++, one--)
+{
+three = *(four + two);
+*(four + two) = *(four + one);
+*(four + one) = three;
+}
+}
+
+/**
+ * infinite_add - this function add 2 numbers together
  * @n1: Char pointer that points to the variable
- * that is passed to this function
- * representation of 1st number to add
- * @n2: Char pointer that points to the variable
- * that is passed to this function text
- * representation of 2nd number to add
- * @r:Char pointer that points to the variable
- * that is passed to this function that points to buffer
- * @size_r: Integer that is passed to this function that
- * tells buffer size
- * Return: pointer to calling function
+ * that is passed to this function that text representation of
+ * 1st number to add
+ * @n2:  Char pointer that points to the variable
+ * that is passed to this function that text representation of
+ * 2nd number to add
+ * @r:  Char pointer that points to the variable
+ * that is passed to this function that is pointer to buffer
+ * @size_r: buffer size
+ * Return: pointer parameter r
  */
 
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-int overflow = 0;
-int one = 0;
-int two = 0;
-int ten = 0;
-int nine = 0;
-int six = 0;
 int five = 0;
+int six = 0;
+int seven = 0;
+int eigth = 0;
+int nine = 0;
+int ten = 0;
+int one = 0;
 
-while (*(n1 + one) != '\0')
-{
-one++;
-}
-while (*(n2 + two) != '\0')
-{
-two++;
-}
-one--;
-two--;
-if (two >= size_r || one >= size_r)
-{
+while (*(n1 + six) != '\0')
+six++;
+while (*(n2 + seven) != '\0')
+seven++;
+six--;
+seven--;
+if (seven >= size_r || six >= size_r)
 return (0);
-}
-while (two >= 0 || one >= 0 || overflow == 1)
+while (seven >= 0 || six >= 0 || five == 1)
 {
-if (one < 0)
-{
+if (six < 0)
 nine = 0;
-}
 else
-{
-nine = *(n1 + one) -'0';
-}
-if (two < 0)
-{
-six = 0;
-}
+nine = *(n1 + six) -'0';
+if (seven < 0)
+ten = 0;
 else
-{
-six = *(n2 + two) -'0';
-}
-five = nine + six + overflow;
-if (five >= 10)
-{
-overflow = 1;
-}
+ten = *(n2 + seven) -'0';
+one = nine + ten + five;
+if (one >= 10)
+five = 1;
 else
-{
-overflow = 0;
-}
-if (ten >= (size_r - 1))
-{
+five = 0;
+if (eigth >= (size_r - 1))
 return (0);
+*(r + eigth) = (one % 10) + '0';
+eigth++;
+seven--;
+six--;
 }
-*(r + ten) = (five % 10) + '0';
-ten++;
-two--;
-one--;
-}
-if (ten == size_r)
-{
+if (eigth == size_r)
 return (0);
-}
-*(r + ten) = '\0';
-char seven;
-int four = 0;
-int three = 0;
-
-while (*(r + four) != '\0')
-{
-four++;
-}
-four--;
-
-do {
-seven = *(r + three);
-*(r + three) = *(r + four);
-*(r + four) = seven;
-three++;
-four--;
-} while (three < four);
+*(r + eigth) = '\0';
+firaol(r);
 return (r);
 }
