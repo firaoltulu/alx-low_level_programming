@@ -15,10 +15,10 @@
  */
 int main(int argc, char *argv[])
 {
-int coins[] = {25, 10, 5, 2, 1};
 int one = atoi(argv[1]);
 int two = 0;
 int three = 0;
+int coins[] = {25, 10, 5, 2, 1};
 
 if (argc != 2)
 {
