@@ -45,7 +45,8 @@ int nine;
 int ten = 1;
 int eight = 0;
 
-do {
+while (ten < argc)
+{
 int res = Firaol_check_num(argv[ten]);
 if (res == 1)
 {
@@ -59,8 +60,7 @@ return (1);
 }
 
 ten++;
-} while (ten < argc);
-
+}
 printf("%d\n", eight);
 
 return (0);
