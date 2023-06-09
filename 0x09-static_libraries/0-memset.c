@@ -5,7 +5,7 @@
  * that is passed to this function starting address of
  * memory to be filled.
  * @b: Char that is passed to this function to be the desired value.
- * @n:  unsigned int that is passed to this function 
+ * @n:  unsigned int that is passed to this function
  * number of bytes to be changed.
  *
  * Return: changed array with new value for n bytes
