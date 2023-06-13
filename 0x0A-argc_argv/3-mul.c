@@ -23,7 +23,7 @@ return (1);
 }
 three = atoi(argv[1]);
 four = atoi(argv[2]);
-two = three * four;
+two = three *four;
 
 printf("%d\n", two);
 
