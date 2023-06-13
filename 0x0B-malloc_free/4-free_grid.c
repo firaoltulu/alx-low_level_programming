@@ -17,9 +17,10 @@ void free_grid(int **grid, int height)
 int two = 0;
 int locheight = height;
 
-do {
+while (two < locheight)
+{
 free(grid[two]);
 two++;
-} while (two < locheight);
+}
 free(grid);
 }
