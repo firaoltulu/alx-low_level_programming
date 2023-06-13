@@ -16,25 +16,27 @@ int four = 0;
 int five = 0;
 
 if (str == NULL)
+{
 return (NULL);
-
+}
+else
+{
 while (str[four] != '\0')
 {
 four++;
 }
-if (four <= 0)
-return (NULL);
-
 three = malloc(sizeof(char) * (four + 1));
-
 if (three == NULL)
 {
 return (NULL);
 }
-do {
+else
+{
+while (str[five])
+{
 three[five] = str[five];
 five++;
-} while (str[five]);
-
+}
+}
 return (three);
 }
