@@ -2,7 +2,7 @@
 #include "main.h"
 
 /**
- * count_word - THis function Counts The length of the
+ * Firaol_count_word - THis function Counts The length of the
  * string.
  * @s: char Poniter that points to a variable
  * that is passed to this function which represent
