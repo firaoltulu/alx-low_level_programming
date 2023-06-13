@@ -45,26 +45,17 @@ int three, six, eight, nine;
 int seven = 0, five = 0, ten = 0;
 
 while (*(str + five))
-{
 five++;
-}
-
 six = Firaol_count_word(str);
 if (six == 0)
-{
 return (NULL);
-}
 else
 {
-
 one = (char **)malloc(sizeof(char *) * (six + 1));
 if (one == NULL)
-{
 return (NULL);
-}
 else
 {
-
 for (three = 0; three <= five; three++)
 {
 if (str[three] == ' ' || str[three] == '\0')
@@ -74,9 +65,7 @@ if (ten)
 nine = three;
 two = (char *)malloc(sizeof(char) * (ten + 1));
 if (two == NULL)
-{
 return (NULL);
-}
 else
 {
 while (eight < nine)
@@ -87,18 +76,13 @@ while (eight < nine)
 one[seven] = two - ten;
 seven++;
 ten = 0;
-
 }
 }
 }
 else if (ten++ == 0)
-{
 eight = three;
 }
-}
-
 one[seven] = NULL;
-
 return (one);
 }
 }

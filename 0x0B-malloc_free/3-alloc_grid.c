@@ -22,15 +22,12 @@ return (NULL);
 else
 {
 nine = malloc(sizeof(int *) * height);
-
 if (nine == NULL)
 {
 return (NULL);
 }
-do
-{
+do {
 nine[ten] = malloc(sizeof(int) * width);
-
 if (nine[ten] == NULL)
 {
 for (; ten >= 0; ten--)
@@ -42,7 +39,6 @@ return (NULL);
 }
 ten++;
 } while (ten < height);
-
 for (ten = 0; ten < height; ten++)
 {
 for (one = 0; one < width; one++)
@@ -50,7 +46,6 @@ for (one = 0; one < width; one++)
 nine[ten][one] = 0;
 }
 }
-
 return (nine);
 }
 }

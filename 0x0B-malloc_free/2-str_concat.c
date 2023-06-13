@@ -20,24 +20,15 @@ if (s1 == NULL)
 {
 s1 = "";
 }
-
 if (s2 == NULL)
 {
 s2 = "";
 }
-
 while (s1[seven] != '\0')
-{
 seven++;
-}
-
 while (s2[eight] != '\0')
-{
 eight++;
-}
-
 six = malloc(sizeof(char) * (seven + eight + 1));
-
 if (six == NULL)
 {
 return (NULL);
@@ -51,7 +42,6 @@ while (s1[seven] != '\0')
 six[seven] = s1[seven];
 seven++;
 }
-
 while (s2[eight] != '\0')
 {
 six[seven] = s2[eight];

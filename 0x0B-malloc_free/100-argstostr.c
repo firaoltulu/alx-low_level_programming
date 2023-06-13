@@ -30,9 +30,7 @@ four++;
 }
 }
 four += ac;
-
 five = malloc(sizeof(char) * four + 1);
-
 if (five == NULL)
 {
 return (NULL);

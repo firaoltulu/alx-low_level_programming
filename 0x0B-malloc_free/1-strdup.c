@@ -29,8 +29,7 @@ if (three == NULL)
 {
 return (NULL);
 }
-do
-{
+do {
 three[five] = str[five];
 five++;
 } while (str[five]);
