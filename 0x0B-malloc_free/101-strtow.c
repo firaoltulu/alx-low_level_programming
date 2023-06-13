@@ -49,13 +49,9 @@ five++;
 six = Firaol_count_word(str);
 if (six == 0)
 return (NULL);
-else
-{
 one = (char **)malloc(sizeof(char *) * (six + 1));
 if (one == NULL)
 return (NULL);
-else
-{
 for (three = 0; three <= five; three++)
 {
 if (str[three] == ' ' || str[three] == '\0')
@@ -69,9 +65,7 @@ return (NULL);
 else
 {
 while (eight < nine)
-{
 *two++ = str[eight++];
-}
 *two = '\0';
 one[seven] = two - ten;
 seven++;
@@ -84,6 +78,4 @@ eight = three;
 }
 one[seven] = NULL;
 return (one);
-}
-}
 }
