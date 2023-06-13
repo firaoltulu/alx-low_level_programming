@@ -22,6 +22,8 @@ while (str[four] != '\0')
 {
 four++;
 }
+if (four <= 0)
+return (NULL);
 
 three = malloc(sizeof(char) * (four + 1));
 
