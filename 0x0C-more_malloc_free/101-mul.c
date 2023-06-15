@@ -69,7 +69,8 @@ exit(98);
  *
  * Return: Integer 0 Success.
  */
-int firfirmain(int one, int two, int three, int *eight, char *ten, char *firone)
+int firfirmain(int one, int two, int three,
+		int *eight, char *ten, char *firone)
 {
 int  four, five, six, seven, nine = 0;
 
@@ -85,7 +86,7 @@ five = 0;
 for (two = firaol_strlen(firone) - 1; two >= 0; two--)
 {
 seven = firone[two] - '0';
-five += eight[one + two + 1] + (six * seven);
+five += eight[one + two + 1] + (six *seven);
 eight[one + two + 1] = five % 10;
 five /= 10;
 }
