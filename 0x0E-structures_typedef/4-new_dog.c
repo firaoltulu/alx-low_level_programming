@@ -80,6 +80,7 @@ else
 one->name = malloc(sizeof(char) * (two + 1));
 if (one->name == NULL)
 {
+free(dog);
 return (NULL);
 }
 else
@@ -87,6 +88,8 @@ else
 one->owner = malloc(sizeof(char) * (three + 1));
 if (one->owner == NULL)
 {
+free(dog);
+free(dog->name);
 return (NULL);
 }
 else
