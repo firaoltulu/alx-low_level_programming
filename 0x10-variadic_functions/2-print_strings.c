@@ -12,7 +12,7 @@
  * @...: Contains all the
  * variable number of strings to be printed.
  *
- * 
+ *
  * Return: Nothing (Void).
  */
 void print_strings(const char *separator, const unsigned int n, ...)

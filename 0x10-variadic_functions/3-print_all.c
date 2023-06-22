@@ -13,11 +13,9 @@ void print_all(const char *const format, ...)
 {
 int nine = 0;
 char *ten, *one = "";
-
 va_list list;
 
 va_start(list, format);
-
 if (format)
 {
 while (format[nine])
@@ -49,7 +47,6 @@ one = ", ";
 nine++;
 }
 }
-
 printf("\n");
 va_end(list);
 }

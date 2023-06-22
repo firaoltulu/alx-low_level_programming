@@ -1,13 +1,13 @@
 #include <stdarg.h>
 #include "variadic_functions.h"
 /**
- * three_them_all - This Functions Returns
+ * sum_them_all - This Functions Returns
  * the three of all its paramters.
  * @n: const unsigned int that represent
  * The number of paramters passed to the function.
  * @...: Contains all the integers to be added.
- * 
- * Return: If n == 0 - 0.Otherwise - the three of all parameters.
+ *
+ * Return: Integer the sum of all parameters.
  */
 
 int sum_them_all(const unsigned int n, ...)
