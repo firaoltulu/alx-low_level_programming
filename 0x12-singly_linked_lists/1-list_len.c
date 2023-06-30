@@ -15,7 +15,7 @@ size_t two = 0;
 while (h)
 {
 two++;
-two = h->next;
+h = h->next;
 }
 return (two);
 }
