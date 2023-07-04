@@ -11,19 +11,19 @@
  */
 listint_t *add_nodeint(listint_t **head, const int n)
 {
-listint_t *three;
+	listint_t *three;
 
-three = malloc(sizeof(listint_t));
-if (!three)
-{
-return (NULL);
-}
-else
-{
-three->n = n;
-three->next = *head;
-*head = three;
+	three = malloc(sizeof(listint_t));
+	if (!three)
+	{
+		return (NULL);
+	}
+	else
+	{
+		three->n = n;
+		three->next = *head;
+		*head = three;
 
-return (three);
-}
+		return (three);
+	}
 }

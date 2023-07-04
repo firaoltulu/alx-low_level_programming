@@ -10,14 +10,14 @@
  */
 int sum_listint(listint_t *head)
 {
-int two = 0;
-listint_t *three = head;
+	int two = 0;
+	listint_t *three = head;
 
-while (three)
-{
-two += three->n;
-three = three->next;
-}
+	while (three)
+	{
+		two += three->n;
+		three = three->next;
+	}
 
-return (two);
+	return (two);
 }

@@ -9,12 +9,12 @@
  */
 void free_listint(listint_t *head)
 {
-listint_t *six;
+	listint_t *six;
 
-while (head)
-{
-six = head->next;
-free(head);
-head = six;
-}
+	while (head)
+	{
+		six = head->next;
+		free(head);
+		head = six;
+	}
 }

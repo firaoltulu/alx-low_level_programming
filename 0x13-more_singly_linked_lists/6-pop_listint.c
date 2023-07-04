@@ -12,20 +12,20 @@
  */
 int pop_listint(listint_t **head)
 {
-listint_t *eight;
-int nine;
+	listint_t *eight;
+	int nine;
 
-if (!head || !*head)
-{
-return (0);
-}
-else
-{
-nine = (*head)->n;
-eight = (*head)->next;
-free(*head);
-*head = eight;
+	if (!head || !*head)
+	{
+		return (0);
+	}
+	else
+	{
+		nine = (*head)->n;
+		eight = (*head)->next;
+		free(*head);
+		*head = eight;
 
-return (nine);
-}
+		return (nine);
+	}
 }

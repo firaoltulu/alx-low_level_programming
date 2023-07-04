@@ -10,31 +10,31 @@
  */
 listint_t *find_listint_loop(listint_t *head)
 {
-listint_t *two = head;
-listint_t *six = head;
+	listint_t *two = head;
+	listint_t *six = head;
 
-if (!head)
-{
-return (NULL);
-}
-else
-{
-while (two && six && six->next)
-{
-six = six->next->next;
-two = two->next;
-if (six == two)
-{
-two = head;
-while (two != six)
-{
-two = two->next;
-six = six->next;
-}
-return (six);
-}
-}
+	if (!head)
+	{
+		return (NULL);
+	}
+	else
+	{
+		while (two && six && six->next)
+		{
+			six = six->next->next;
+			two = two->next;
+			if (six == two)
+			{
+				two = head;
+				while (two != six)
+				{
+					two = two->next;
+					six = six->next;
+				}
+				return (six);
+			}
+		}
 
-return (NULL);
-}
+		return (NULL);
+	}
 }
