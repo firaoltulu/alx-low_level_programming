@@ -11,16 +11,16 @@
  */
 unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
-    int seven, eight = 0;
-    unsigned long int nine;
-    unsigned long int ten = n ^ m;
+	int seven, eight = 0;
+	unsigned long int nine;
+	unsigned long int ten = n ^ m;
 
-    for (seven = 63; seven >= 0; seven--)
-    {
-        nine = ten >> seven;
-        if (nine & 1)
-            eight++;
-    }
+	for (seven = 63; seven >= 0; seven--)
+	{
+		nine = ten >> seven;
+		if (nine & 1)
+			eight++;
+	}
 
-    return (eight);
+	return (eight);
 }

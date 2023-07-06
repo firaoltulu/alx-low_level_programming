@@ -10,16 +10,16 @@
  */
 int get_bit(unsigned long int n, unsigned int index)
 {
-    int six;
+	int six;
 
-    if (index > 63)
-    {
-        return (-1);
-    }
-    else
-    {
-        six = (n >> index) & 1;
+	if (index > 63)
+	{
+		return (-1);
+	}
+	else
+	{
+		six = (n >> index) & 1;
 
-        return (six);
-    }
+		return (six);
+	}
 }
