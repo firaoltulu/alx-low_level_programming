@@ -11,34 +11,34 @@
 
 int create_file(const char *filename, char *text_content)
 {
-    int five, six, seven = 0;
+	int five, six, seven = 0;
 
-    if (filename == NULL)
-    {
-        return (-1);
-    }
-    else
-    {
+	if (filename == NULL)
+	{
+		return (-1);
+	}
+	else
+	{
 
-        if (text_content != NULL)
-        {
-            for (seven = 0; text_content[seven];)
-            {
-                seven++;
-            }
-        }
+		if (text_content != NULL)
+		{
+			for (seven = 0; text_content[seven];)
+			{
+				seven++;
+			}
+		}
 
-        five = open(filename, O_CREAT | O_RDWR | O_TRUNC, 0600);
-        six = write(five, text_content, seven);
+		five = open(filename, O_CREAT | O_RDWR | O_TRUNC, 0600);
+		six = write(five, text_content, seven);
 
-        if (five == -1 || six == -1)
-        {
-            return (-1);
-        }
-        else
-        {
-            close(five);
-            return (1);
-        }
-    }
+		if (five == -1 || six == -1)
+		{
+			return (-1);
+		}
+		else
+		{
+			close(five);
+			return (1);
+		}
+	}
 }

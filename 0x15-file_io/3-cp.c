@@ -15,19 +15,19 @@ void firaol_close_file(int fd);
  */
 char *firaol_create_buffer(char *file)
 {
-    char *one;
+	char *one;
 
-    one = malloc(sizeof(char) * 1024);
+	one = malloc(sizeof(char) * 1024);
 
-    if (one == NULL)
-    {
-        dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file);
-        exit(99);
-    }
-    else
-    {
-        return (one);
-    }
+	if (one == NULL)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file);
+		exit(99);
+	}
+	else
+	{
+		return (one);
+	}
 }
 
 /**
@@ -36,15 +36,15 @@ char *firaol_create_buffer(char *file)
  */
 void firaol_close_file(int fd)
 {
-    int two;
+	int two;
 
-    two = close(fd);
+	two = close(fd);
 
-    if (two == -1)
-    {
-        dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
-        exit(100);
-    }
+	if (two == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
+		exit(100);
+	}
 }
 
 /**
@@ -56,51 +56,50 @@ void firaol_close_file(int fd)
  */
 int main(int argc, char *argv[])
 {
-    int three, four, five, six;
-    char *seven;
+	int three, four, five, six;
+	char *seven;
 
-    if (argc != 3)
-    {
-        dprintf(STDERR_FILENO, "Usage: cp file_three file_to\n");
-        exit(97);
-    }
-    else
-    {
-        seven = firaol_create_buffer(argv[2]);
-        three = open(argv[1], O_RDONLY);
-        five = read(three, seven, 1024);
-        four = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
+	if (argc != 3)
+	{
+		dprintf(STDERR_FILENO, "Usage: cp file_three file_to\n");
+		exit(97);
+	}
+	else
+	{
+		seven = firaol_create_buffer(argv[2]);
+		three = open(argv[1], O_RDONLY);
+		five = read(three, seven, 1024);
+		four = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 
-        do
-        {
-            if (three == -1 || five == -1)
-            {
-                dprintf(STDERR_FILENO, "Error: Can't read three file %s\n", argv[1]);
-                free(seven);
-                exit(98);
-            }
-            else
-            {
-                six = write(four, seven, five);
-                if (four == -1 || six == -1)
-                {
-                    dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-                    free(seven);
-                    exit(99);
-                }
-                else
-                {
-                    five = read(three, seven, 1024);
-                    four = open(argv[2], O_WRONLY | O_APPEND);
-                }
-            }
+		do {
+			if (three == -1 || five == -1)
+			{
+				dprintf(STDERR_FILENO, "Error: Can't read three file %s\n", argv[1]);
+				free(seven);
+				exit(98);
+			}
+			else
+			{
+				six = write(four, seven, five);
+				if (four == -1 || six == -1)
+				{
+					dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+					free(seven);
+					exit(99);
+				}
+				else
+				{
+					five = read(three, seven, 1024);
+					four = open(argv[2], O_WRONLY | O_APPEND);
+				}
+			}
 
-        } while (five > 0);
+		} while (five > 0);
 
-        free(seven);
-        firaol_close_file(three);
-        firaol_close_file(four);
+		free(seven);
+		firaol_close_file(three);
+		firaol_close_file(four);
 
-        return (0);
-    }
+		return (0);
+	}
 }

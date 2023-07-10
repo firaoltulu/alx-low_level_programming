@@ -12,24 +12,24 @@
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-    char *one;
-    ssize_t two;
-    ssize_t three;
-    ssize_t four;
+	char *one;
+	ssize_t two;
+	ssize_t three;
+	ssize_t four;
 
-    two = open(filename, O_RDONLY);
-    if (two == -1)
-    {
-        return (0);
-    }
-    else
-    {
-        one = malloc(sizeof(char) * letters);
-        four = read(two, one, letters);
-        three = write(STDOUT_FILENO, one, four);
+	two = open(filename, O_RDONLY);
+	if (two == -1)
+	{
+		return (0);
+	}
+	else
+	{
+		one = malloc(sizeof(char) * letters);
+		four = read(two, one, letters);
+		three = write(STDOUT_FILENO, one, four);
 
-        free(one);
-        close(two);
-        return (three);
-    }
+		free(one);
+		close(two);
+		return (three);
+	}
 }
