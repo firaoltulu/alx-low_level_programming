@@ -6,16 +6,41 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void firaol_check_elf(unsigned char *two);
-void firaol_print_magic(unsigned char *two);
-void firaol_print_class(unsigned char *one);
-void firaol_print_data(unsigned char *two);
 void firaol_print_version(unsigned char *two);
 void firaol_print_abi(unsigned char *two);
-void firaol_print_osabi(unsigned char *two);
 void firaol_print_type(unsigned int e_type, unsigned char *two);
 void firaol_print_entry(unsigned long int e_entry, unsigned char *two);
+void firaol_print_class(unsigned char *one);
+void firaol_print_data(unsigned char *two);
+void firaol_check_elf(unsigned char *two);
 void firaol_close_elf(int elf);
+void firaol_print_osabi(unsigned char *two);
+void firaol_print_magic(unsigned char *two);
+/**
+ * firaol_print_entry - this Function Prints
+ * the entry point of an ELF header.
+ * @e_entry: int that represent
+ * The address of the ELF entry point.
+ * @two: A char pointer that points
+ * to an array containing the ELF class.
+ * Return: Nothing (void).
+ */
+void firaol_print_entry(unsigned long int e_entry, unsigned char *two)
+{
+	printf(" Entry point address:               ");
+
+	if (two[EI_DATA] == ELFDATA2MSB)
+	{
+		e_entry = ((e_entry << 8) & 0xFF00FF00) | ((e_entry >> 8) & 0xFF00FF);
+		e_entry = (e_entry << 16) | (e_entry >> 16);
+	}
+
+	if (two[EI_CLASS] == ELFCLASS32)
+		printf("%#x\n", (unsigned int)e_entry);
+
+	else
+		printf("%#lx\n", e_entry);
+}
 
 /**
  * firaol_check_elf - This Function Checks if a file
@@ -32,9 +57,9 @@ void firaol_check_elf(unsigned char *two)
 	for (one = 0; one < 4; one++)
 	{
 		if (two[one] != 127 &&
-				two[one] != 'E' &&
-				two[one] != 'L' &&
-				two[one] != 'F')
+			two[one] != 'E' &&
+			two[one] != 'L' &&
+			two[one] != 'F')
 		{
 			dprintf(STDERR_FILENO, "Error: Not an ELF file\n");
 			exit(98);
@@ -68,32 +93,6 @@ void firaol_print_magic(unsigned char *two)
 }
 
 /**
- * firaol_print_class - This Function Prints
- * the class of an ELF header.
- * @one: A char pointer that points
- * to an array containing the ELF class.
- */
-void firaol_print_class(unsigned char *one)
-{
-	printf(" Class:                             ");
-
-	switch (one[EI_CLASS])
-	{
-		case ELFCLASSNONE:
-			printf("none\n");
-			break;
-		case ELFCLASS32:
-			printf("ELF32\n");
-			break;
-		case ELFCLASS64:
-			printf("ELF64\n");
-			break;
-		default:
-			printf("<unknown: %x>\n", one[EI_CLASS]);
-	}
-}
-
-/**
  * firaol_print_data - this Function Prints
  * the data of an ELF header.
  * @two: A char pointer that points
@@ -105,17 +104,17 @@ void firaol_print_data(unsigned char *two)
 
 	switch (two[EI_DATA])
 	{
-		case ELFDATANONE:
-			printf("none\n");
-			break;
-		case ELFDATA2LSB:
-			printf("2's complement, little endian\n");
-			break;
-		case ELFDATA2MSB:
-			printf("2's complement, big endian\n");
-			break;
-		default:
-			printf("<unknown: %x>\n", two[EI_CLASS]);
+	case ELFDATANONE:
+		printf("none\n");
+		break;
+	case ELFDATA2LSB:
+		printf("2's complement, little endian\n");
+		break;
+	case ELFDATA2MSB:
+		printf("2's complement, big endian\n");
+		break;
+	default:
+		printf("<unknown: %x>\n", two[EI_CLASS]);
 	}
 }
 
@@ -132,73 +131,13 @@ void firaol_print_version(unsigned char *two)
 
 	switch (two[EI_VERSION])
 	{
-		case EV_CURRENT:
-			printf(" (current)\n");
-			break;
-		default:
-			printf("\n");
-			break;
+	case EV_CURRENT:
+		printf(" (current)\n");
+		break;
+	default:
+		printf("\n");
+		break;
 	}
-}
-
-/**
- * firaol_print_osabi - This Function Prints
- * the OS/ABI of an ELF header.
- * @two: A char pointer that points
- * to an array containing the ELF version.
- */
-void firaol_print_osabi(unsigned char *two)
-{
-	printf(" OS/ABI:                            ");
-
-	switch (two[EI_OSABI])
-	{
-		case ELFOSABI_NONE:
-			printf("UNIX - System V\n");
-			break;
-		case ELFOSABI_HPUX:
-			printf("UNIX - HP-UX\n");
-			break;
-		case ELFOSABI_NETBSD:
-			printf("UNIX - NetBSD\n");
-			break;
-		case ELFOSABI_LINUX:
-			printf("UNIX - Linux\n");
-			break;
-		case ELFOSABI_SOLARIS:
-			printf("UNIX - Solaris\n");
-			break;
-		case ELFOSABI_IRIX:
-			printf("UNIX - IRIX\n");
-			break;
-		case ELFOSABI_FREEBSD:
-			printf("UNIX - FreeBSD\n");
-			break;
-		case ELFOSABI_TRU64:
-			printf("UNIX - TRU64\n");
-			break;
-		case ELFOSABI_ARM:
-			printf("ARM\n");
-			break;
-		case ELFOSABI_STANDALONE:
-			printf("Standalone App\n");
-			break;
-		default:
-			printf("<unknown: %x>\n", two[EI_OSABI]);
-	}
-}
-
-/**
- * firaol_print_abi - this function Prints
- * the ABI version of an ELF header.
- * @two: A char pointer that points
- * to an array containing the ELF
- * ABI version.
- */
-void firaol_print_abi(unsigned char *two)
-{
-	printf(" ABI Version:                       %d\n",
-			two[EI_ABIVERSION]);
 }
 
 /**
@@ -218,66 +157,37 @@ void firaol_print_type(unsigned int e_type, unsigned char *two)
 
 	switch (e_type)
 	{
-		case ET_NONE:
-			printf("NONE (None)\n");
-			break;
-		case ET_REL:
-			printf("REL (Relocatable file)\n");
-			break;
-		case ET_EXEC:
-			printf("EXEC (Executable file)\n");
-			break;
-		case ET_DYN:
-			printf("DYN (Shared object file)\n");
-			break;
-		case ET_CORE:
-			printf("CORE (Core file)\n");
-			break;
-		default:
-			printf("<unknown: %x>\n", e_type);
+	case ET_NONE:
+		printf("NONE (None)\n");
+		break;
+	case ET_REL:
+		printf("REL (Relocatable file)\n");
+		break;
+	case ET_EXEC:
+		printf("EXEC (Executable file)\n");
+		break;
+	case ET_DYN:
+		printf("DYN (Shared object file)\n");
+		break;
+	case ET_CORE:
+		printf("CORE (Core file)\n");
+		break;
+	default:
+		printf("<unknown: %x>\n", e_type);
 	}
 }
 
 /**
- * firaol_print_entry - this Function Prints
- * the entry point of an ELF header.
- * @e_entry: int that represent
- * The address of the ELF entry point.
+ * firaol_print_abi - this function Prints
+ * the ABI version of an ELF header.
  * @two: A char pointer that points
- * to an array containing the ELF class.
- * Return: Nothing (void).
+ * to an array containing the ELF
+ * ABI version.
  */
-void firaol_print_entry(unsigned long int e_entry, unsigned char *two)
+void firaol_print_abi(unsigned char *two)
 {
-	printf(" Entry point address:               ");
-
-	if (two[EI_DATA] == ELFDATA2MSB)
-	{
-		e_entry = ((e_entry << 8) & 0xFF00FF00) | ((e_entry >> 8) & 0xFF00FF);
-		e_entry = (e_entry << 16) | (e_entry >> 16);
-	}
-
-	if (two[EI_CLASS] == ELFCLASS32)
-		printf("%#x\n", (unsigned int)e_entry);
-
-	else
-		printf("%#lx\n", e_entry);
-}
-
-/**
- * firaol_close_elf - This Function Closes an ELF file.
- * @elf: Int that represents The file
- * descriptor of the ELF file.
- *
- */
-
-void firaol_close_elf(int elf)
-{
-	if (close(elf) == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", elf);
-		exit(98);
-	}
+	printf(" ABI Version:                       %d\n",
+		   two[EI_ABIVERSION]);
 }
 
 /**
@@ -336,5 +246,120 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 				return (0);
 			}
 		}
+	}
+}
+
+/**
+ * firaol_print_osabi - This Function Prints
+ * the OS/ABI of an ELF header.
+ * @two: A char pointer that points
+ * to an array containing the ELF version.
+ */
+void firaol_print_osabi(unsigned char *two)
+{
+	printf(" OS/ABI:                            ");
+
+	switch (two[EI_OSABI])
+	{
+	case ELFOSABI_NONE:
+		printf("UNIX - System V\n");
+		break;
+	case ELFOSABI_HPUX:
+		printf("UNIX - HP-UX\n");
+		break;
+	case ELFOSABI_NETBSD:
+		printf("UNIX - NetBSD\n");
+		break;
+	case ELFOSABI_LINUX:
+		printf("UNIX - Linux\n");
+		break;
+	case ELFOSABI_SOLARIS:
+		printf("UNIX - Solaris\n");
+		break;
+	case ELFOSABI_IRIX:
+		printf("UNIX - IRIX\n");
+		break;
+	case ELFOSABI_FREEBSD:
+		printf("UNIX - FreeBSD\n");
+		break;
+	case ELFOSABI_TRU64:
+		printf("UNIX - TRU64\n");
+		break;
+	case ELFOSABI_ARM:
+		printf("ARM\n");
+		break;
+	case ELFOSABI_STANDALONE:
+		printf("Standalone App\n");
+		break;
+	default:
+		printf("<unknown: %x>\n", two[EI_OSABI]);
+	}
+}
+
+/**
+ * firaol_print_class - This Function Prints
+ * the class of an ELF header.
+ * @one: A char pointer that points
+ * to an array containing the ELF class.
+ */
+void firaol_print_class(unsigned char *one)
+{
+	printf(" Class:                             ");
+
+	switch (one[EI_CLASS])
+	{
+	case ELFCLASSNONE:
+		printf("none\n");
+		break;
+	case ELFCLASS32:
+		printf("ELF32\n");
+		break;
+	case ELFCLASS64:
+		printf("ELF64\n");
+		break;
+	default:
+		printf("<unknown: %x>\n", one[EI_CLASS]);
+	}
+}
+
+/**
+ * firaol_print_class - This Function Prints
+ * the class of an ELF header.
+ * @one: A char pointer that points
+ * to an array containing the ELF class.
+ */
+void firaol_print_class(unsigned char *one)
+{
+	printf(" Class:                             ");
+
+	switch (one[EI_CLASS])
+	{
+	case ELFCLASSNONE:
+		printf("none\n");
+		break;
+	case ELFCLASS32:
+		printf("ELF32\n");
+		break;
+	case ELFCLASS64:
+		printf("ELF64\n");
+		break;
+	default:
+		printf("<unknown: %x>\n", one[EI_CLASS]);
+	}
+}
+
+/**
+ * firaol_close_elf - This Function Closes an ELF file.
+ * @elf: Int that represents The file
+ * descriptor of the ELF file.
+ *
+ */
+
+void firaol_close_elf(int elf)
+{
+	if (close(elf) == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", elf);
+		exit(98);
 	}
 }
