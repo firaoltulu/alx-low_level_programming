@@ -5,16 +5,7 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include "100-elf.h"
-#include "main.h"
 
-<<<<<<< HEAD
-void firaol_print_data(unsigned char *two);
-void firaol_check_elf(unsigned char *two);
-void firaol_close_elf(int elf);
-void firaol_print_osabi(unsigned char *two);
-void firaol_print_magic(unsigned char *two);
-=======
 void firaol_print_version(unsigned char *six);
 void firaol_print_class(unsigned char *six);
 void firaol_print_data(unsigned char *six);
@@ -52,7 +43,6 @@ void firaol_print_class(unsigned char *six)
 		printf("<unknown: %x>\n", six[EI_CLASS]);
 	}
 }
->>>>>>> 32c2aea3f94a3a5bf5c90dc286d625a8406ac3a9
 
 /**
  * firaol_print_data - THis Function Prints
@@ -90,8 +80,7 @@ void firaol_print_data(unsigned char *six)
  */
 void firaol_print_version(unsigned char *six)
 {
-	printf("  Version:                           %d",
-		   six[EI_VERSION]);
+	printf("  Version:                           %d", six[EI_VERSION]);
 
 	switch (six[EI_VERSION])
 	{
@@ -153,19 +142,16 @@ void firaol_print_osabi(unsigned char *six)
 }
 
 /**
-<<<<<<< HEAD
- * main - this function Displays the information contained in the
-=======
  * firaol_print_abi - THis Function Prints
  * the ABI version of an ELF header.
  * @six: A char pointer that points
  * to an array containing the ELF ABI version.
  * Return: Nothing (void)
  */
+
 void firaol_print_abi(unsigned char *six)
 {
-	printf("  ABI Version:                       %d\n",
-		   six[EI_ABIVERSION]);
+	printf("  ABI Version:                       %d\n", six[EI_ABIVERSION]);
 }
 
 /**
@@ -214,7 +200,6 @@ void firaol_print_type(unsigned int seven, unsigned char *six)
  * to an array containing the ELF class.
  * Return: Nothing (void)
  */
-
 void firaol_print_entry(unsigned long int seven, unsigned char *six)
 {
 	printf("  Entry point address:               ");
@@ -253,7 +238,6 @@ void firaol_close_elf(int elf)
 /**
  * main - THis Function Displays
  * the information contained in the
->>>>>>> 32c2aea3f94a3a5bf5c90dc286d625a8406ac3a9
  * ELF header at the start of an ELF file.
  * @argc: Int that Represent The
  * number of arguments supplied to the program.
@@ -295,20 +279,6 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 			{
 				firaol_check_elf(one->e_ident);
 				printf("ELF Header:\n");
-<<<<<<< HEAD
-				firaol_print_magic(three->e_ident);
-				firaol_print_class(three->e_ident);
-				firaol_print_data(three->e_ident);
-				firaol_print_version(three->e_ident);
-				firaol_print_osabi(three->e_ident);
-				firaol_print_abi(three->e_ident);
-				firaol_print_type(three->e_type, three->e_ident);
-				firaol_print_entry(three->e_entry, three->e_ident);
-
-				free(three);
-				firaol_close_elf(one);
-
-=======
 				firaol_print_magic(one->e_ident);
 				firaol_print_class(one->e_ident);
 				firaol_print_data(one->e_ident);
@@ -319,7 +289,6 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 				firaol_print_entry(one->e_entry, one->e_ident);
 				free(one);
 				firaol_close_elf(two);
->>>>>>> 32c2aea3f94a3a5bf5c90dc286d625a8406ac3a9
 			}
 		}
 	}
@@ -351,17 +320,6 @@ void firaol_check_elf(unsigned char *six)
 }
 
 /**
-<<<<<<< HEAD
- * firaol_close_elf - This Function Closes an ELF file.
- * @elf: Int that represents The file
- * descriptor of the ELF file.
- *
- */
-
-void firaol_close_elf(int elf)
-{
-	if (close(elf) == -1)
-=======
  * firaol_print_magic - This Function Prints
  * the magic numbers of an ELF header.
  * @six: A Char pointer THat Points
@@ -375,7 +333,6 @@ void firaol_print_magic(unsigned char *six)
 	printf("  Magic:   ");
 
 	for (one = 0; one < EI_NIDENT; one++)
->>>>>>> 32c2aea3f94a3a5bf5c90dc286d625a8406ac3a9
 	{
 		printf("%02x", six[one]);
 
