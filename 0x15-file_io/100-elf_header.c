@@ -54,7 +54,7 @@ void firaol_print_magic(unsigned char *two)
 {
 	int one;
 
-	printf(" Magic: ");
+	printf(" Magic:   ");
 
 	for (one = 0; one < EI_NIDENT; one++)
 	{
@@ -75,7 +75,7 @@ void firaol_print_magic(unsigned char *two)
  */
 void firaol_print_class(unsigned char *one)
 {
-	printf(" Class: ");
+	printf(" Class:                             ");
 
 	switch (one[EI_CLASS])
 	{
@@ -101,7 +101,7 @@ void firaol_print_class(unsigned char *one)
  */
 void firaol_print_data(unsigned char *two)
 {
-	printf(" Data: ");
+	printf(" Data:                              ");
 
 	switch (two[EI_DATA])
 	{
@@ -120,7 +120,7 @@ void firaol_print_data(unsigned char *two)
 }
 
 /**
- * rint_version -this Function Prints
+ * firaol_print_version - this Function Prints
  * the version of an ELF header.
  * @two: A char pointer that points
  * to an array containing the ELF version.
@@ -128,7 +128,7 @@ void firaol_print_data(unsigned char *two)
  */
 void firaol_print_version(unsigned char *two)
 {
-	printf(" Version: %d", two[EI_VERSION]);
+	printf(" Version:                           %d", two[EI_VERSION]);
 
 	switch (two[EI_VERSION])
 	{
@@ -149,7 +149,7 @@ void firaol_print_version(unsigned char *two)
  */
 void firaol_print_osabi(unsigned char *two)
 {
-	printf(" OS/ABI: ");
+	printf(" OS/ABI:                            ");
 
 	switch (two[EI_OSABI])
 	{
@@ -197,7 +197,7 @@ void firaol_print_osabi(unsigned char *two)
  */
 void firaol_print_abi(unsigned char *two)
 {
-	printf(" ABI Version: %d\n",
+	printf(" ABI Version:                       %d\n",
 			two[EI_ABIVERSION]);
 }
 
@@ -214,7 +214,7 @@ void firaol_print_type(unsigned int e_type, unsigned char *two)
 	if (two[EI_DATA] == ELFDATA2MSB)
 		e_type >>= 8;
 
-	printf(" Type: ");
+	printf(" Type:                              ");
 
 	switch (e_type)
 	{
@@ -249,7 +249,7 @@ void firaol_print_type(unsigned int e_type, unsigned char *two)
  */
 void firaol_print_entry(unsigned long int e_entry, unsigned char *two)
 {
-	printf(" Entry point address: ");
+	printf(" Entry point address:               ");
 
 	if (two[EI_DATA] == ELFDATA2MSB)
 	{
