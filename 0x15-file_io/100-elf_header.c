@@ -323,32 +323,6 @@ void firaol_print_class(unsigned char *one)
 }
 
 /**
- * firaol_print_class - This Function Prints
- * the class of an ELF header.
- * @one: A char pointer that points
- * to an array containing the ELF class.
- */
-void firaol_print_class(unsigned char *one)
-{
-	printf(" Class:                             ");
-
-	switch (one[EI_CLASS])
-	{
-		case ELFCLASSNONE:
-			printf("none\n");
-			break;
-		case ELFCLASS32:
-			printf("ELF32\n");
-			break;
-		case ELFCLASS64:
-			printf("ELF64\n");
-			break;
-		default:
-			printf("<unknown: %x>\n", one[EI_CLASS]);
-	}
-}
-
-/**
  * firaol_close_elf - This Function Closes an ELF file.
  * @elf: Int that represents The file
  * descriptor of the ELF file.
