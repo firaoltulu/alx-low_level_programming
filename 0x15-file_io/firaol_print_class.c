@@ -1,3 +1,4 @@
+#include "100-elf.h"
 #include <elf.h>
 #include <sys/types.h>
 #include <sys/stat.h>
@@ -13,20 +14,20 @@
  */
 void firaol_print_class(unsigned char *one)
 {
-    printf(" Class:                             ");
+	printf(" Class:                             ");
 
-    switch (one[EI_CLASS])
-    {
-    case ELFCLASSNONE:
-        printf("none\n");
-        break;
-    case ELFCLASS32:
-        printf("ELF32\n");
-        break;
-    case ELFCLASS64:
-        printf("ELF64\n");
-        break;
-    default:
-        printf("<unknown: %x>\n", one[EI_CLASS]);
-    }
+	switch (one[EI_CLASS])
+	{
+		case ELFCLASSNONE:
+			printf("none\n");
+			break;
+		case ELFCLASS32:
+			printf("ELF32\n");
+			break;
+		case ELFCLASS64:
+			printf("ELF64\n");
+			break;
+		default:
+			printf("<unknown: %x>\n", one[EI_CLASS]);
+	}
 }

@@ -1,3 +1,4 @@
+#include "100-elf.h"
 #include <elf.h>
 #include <sys/types.h>
 #include <sys/stat.h>
@@ -15,15 +16,15 @@
  */
 void firaol_print_version(unsigned char *two)
 {
-    printf(" Version:                           %d", two[EI_VERSION]);
+	printf(" Version:                           %d", two[EI_VERSION]);
 
-    switch (two[EI_VERSION])
-    {
-    case EV_CURRENT:
-        printf(" (current)\n");
-        break;
-    default:
-        printf("\n");
-        break;
-    }
+	switch (two[EI_VERSION])
+	{
+		case EV_CURRENT:
+			printf(" (current)\n");
+			break;
+		default:
+			printf("\n");
+			break;
+	}
 }

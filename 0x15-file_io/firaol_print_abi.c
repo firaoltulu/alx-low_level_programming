@@ -1,3 +1,4 @@
+#include "100-elf.h"
 #include <elf.h>
 #include <sys/types.h>
 #include <sys/stat.h>
@@ -15,6 +16,6 @@
  */
 void firaol_print_abi(unsigned char *two)
 {
-    printf(" ABI Version:                       %d\n",
-           two[EI_ABIVERSION]);
+	printf(" ABI Version:                       %d\n",
+			two[EI_ABIVERSION]);
 }

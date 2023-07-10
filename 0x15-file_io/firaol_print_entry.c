@@ -1,3 +1,4 @@
+#include "100-elf.h"
 #include <elf.h>
 #include <sys/types.h>
 #include <sys/stat.h>
@@ -16,17 +17,17 @@
  */
 void firaol_print_entry(unsigned long int e_entry, unsigned char *two)
 {
-    printf(" Entry point address:               ");
+	printf(" Entry point address:               ");
 
-    if (two[EI_DATA] == ELFDATA2MSB)
-    {
-        e_entry = ((e_entry << 8) & 0xFF00FF00) | ((e_entry >> 8) & 0xFF00FF);
-        e_entry = (e_entry << 16) | (e_entry >> 16);
-    }
+	if (two[EI_DATA] == ELFDATA2MSB)
+	{
+		e_entry = ((e_entry << 8) & 0xFF00FF00) | ((e_entry >> 8) & 0xFF00FF);
+		e_entry = (e_entry << 16) | (e_entry >> 16);
+	}
 
-    if (two[EI_CLASS] == ELFCLASS32)
-        printf("%#x\n", (unsigned int)e_entry);
+	if (two[EI_CLASS] == ELFCLASS32)
+		printf("%#x\n", (unsigned int)e_entry);
 
-    else
-        printf("%#lx\n", e_entry);
+	else
+		printf("%#lx\n", e_entry);
 }

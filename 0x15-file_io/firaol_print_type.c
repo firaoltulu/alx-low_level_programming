@@ -1,3 +1,4 @@
+#include "100-elf.h"
 #include <elf.h>
 #include <sys/types.h>
 #include <sys/stat.h>
@@ -15,29 +16,29 @@
  */
 void firaol_print_type(unsigned int e_type, unsigned char *two)
 {
-    if (two[EI_DATA] == ELFDATA2MSB)
-        e_type >>= 8;
+	if (two[EI_DATA] == ELFDATA2MSB)
+		e_type >>= 8;
 
-    printf(" Type:                              ");
+	printf(" Type:                              ");
 
-    switch (e_type)
-    {
-    case ET_NONE:
-        printf("NONE (None)\n");
-        break;
-    case ET_REL:
-        printf("REL (Relocatable file)\n");
-        break;
-    case ET_EXEC:
-        printf("EXEC (Executable file)\n");
-        break;
-    case ET_DYN:
-        printf("DYN (Shared object file)\n");
-        break;
-    case ET_CORE:
-        printf("CORE (Core file)\n");
-        break;
-    default:
-        printf("<unknown: %x>\n", e_type);
-    }
+	switch (e_type)
+	{
+		case ET_NONE:
+			printf("NONE (None)\n");
+			break;
+		case ET_REL:
+			printf("REL (Relocatable file)\n");
+			break;
+		case ET_EXEC:
+			printf("EXEC (Executable file)\n");
+			break;
+		case ET_DYN:
+			printf("DYN (Shared object file)\n");
+			break;
+		case ET_CORE:
+			printf("CORE (Core file)\n");
+			break;
+		default:
+			printf("<unknown: %x>\n", e_type);
+	}
 }
