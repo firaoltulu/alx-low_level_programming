@@ -30,17 +30,17 @@ void firaol_print_class(unsigned char *six)
 
 	switch (six[EI_CLASS])
 	{
-	case ELFCLASSNONE:
-		printf("none\n");
-		break;
-	case ELFCLASS32:
-		printf("ELF32\n");
-		break;
-	case ELFCLASS64:
-		printf("ELF64\n");
-		break;
-	default:
-		printf("<unknown: %x>\n", six[EI_CLASS]);
+		case ELFCLASSNONE:
+			printf("none\n");
+			break;
+		case ELFCLASS32:
+			printf("ELF32\n");
+			break;
+		case ELFCLASS64:
+			printf("ELF64\n");
+			break;
+		default:
+			printf("<unknown: %x>\n", six[EI_CLASS]);
 	}
 }
 
@@ -57,17 +57,17 @@ void firaol_print_data(unsigned char *six)
 
 	switch (six[EI_DATA])
 	{
-	case ELFDATANONE:
-		printf("none\n");
-		break;
-	case ELFDATA2LSB:
-		printf("2's complement, little endian\n");
-		break;
-	case ELFDATA2MSB:
-		printf("2's complement, big endian\n");
-		break;
-	default:
-		printf("<unknown: %x>\n", six[EI_CLASS]);
+		case ELFDATANONE:
+			printf("none\n");
+			break;
+		case ELFDATA2LSB:
+			printf("2's complement, little endian\n");
+			break;
+		case ELFDATA2MSB:
+			printf("2's complement, big endian\n");
+			break;
+		default:
+			printf("<unknown: %x>\n", six[EI_CLASS]);
 	}
 }
 
@@ -84,12 +84,12 @@ void firaol_print_version(unsigned char *six)
 
 	switch (six[EI_VERSION])
 	{
-	case EV_CURRENT:
-		printf(" (current)\n");
-		break;
-	default:
-		printf("\n");
-		break;
+		case EV_CURRENT:
+			printf(" (current)\n");
+			break;
+		default:
+			printf("\n");
+			break;
 	}
 }
 
@@ -106,38 +106,38 @@ void firaol_print_osabi(unsigned char *six)
 
 	switch (six[EI_OSABI])
 	{
-	case ELFOSABI_NONE:
-		printf("UNIX - System V\n");
-		break;
-	case ELFOSABI_HPUX:
-		printf("UNIX - HP-UX\n");
-		break;
-	case ELFOSABI_NETBSD:
-		printf("UNIX - NetBSD\n");
-		break;
-	case ELFOSABI_LINUX:
-		printf("UNIX - Linux\n");
-		break;
-	case ELFOSABI_SOLARIS:
-		printf("UNIX - Solaris\n");
-		break;
-	case ELFOSABI_IRIX:
-		printf("UNIX - IRIX\n");
-		break;
-	case ELFOSABI_FREEBSD:
-		printf("UNIX - FreeBSD\n");
-		break;
-	case ELFOSABI_TRU64:
-		printf("UNIX - TRU64\n");
-		break;
-	case ELFOSABI_ARM:
-		printf("ARM\n");
-		break;
-	case ELFOSABI_STANDALONE:
-		printf("Standalone App\n");
-		break;
-	default:
-		printf("<unknown: %x>\n", six[EI_OSABI]);
+		case ELFOSABI_NONE:
+			printf("UNIX - System V\n");
+			break;
+		case ELFOSABI_HPUX:
+			printf("UNIX - HP-UX\n");
+			break;
+		case ELFOSABI_NETBSD:
+			printf("UNIX - NetBSD\n");
+			break;
+		case ELFOSABI_LINUX:
+			printf("UNIX - Linux\n");
+			break;
+		case ELFOSABI_SOLARIS:
+			printf("UNIX - Solaris\n");
+			break;
+		case ELFOSABI_IRIX:
+			printf("UNIX - IRIX\n");
+			break;
+		case ELFOSABI_FREEBSD:
+			printf("UNIX - FreeBSD\n");
+			break;
+		case ELFOSABI_TRU64:
+			printf("UNIX - TRU64\n");
+			break;
+		case ELFOSABI_ARM:
+			printf("ARM\n");
+			break;
+		case ELFOSABI_STANDALONE:
+			printf("Standalone App\n");
+			break;
+		default:
+			printf("<unknown: %x>\n", six[EI_OSABI]);
 	}
 }
 
@@ -171,23 +171,23 @@ void firaol_print_type(unsigned int seven, unsigned char *six)
 
 	switch (seven)
 	{
-	case ET_NONE:
-		printf("NONE (None)\n");
-		break;
-	case ET_REL:
-		printf("REL (Relocatable file)\n");
-		break;
-	case ET_EXEC:
-		printf("EXEC (Executable file)\n");
-		break;
-	case ET_DYN:
-		printf("DYN (Shared object file)\n");
-		break;
-	case ET_CORE:
-		printf("CORE (Core file)\n");
-		break;
-	default:
-		printf("<unknown: %x>\n", seven);
+		case ET_NONE:
+			printf("NONE (None)\n");
+			break;
+		case ET_REL:
+			printf("REL (Relocatable file)\n");
+			break;
+		case ET_EXEC:
+			printf("EXEC (Executable file)\n");
+			break;
+		case ET_DYN:
+			printf("DYN (Shared object file)\n");
+			break;
+		case ET_CORE:
+			printf("CORE (Core file)\n");
+			break;
+		default:
+			printf("<unknown: %x>\n", seven);
 	}
 }
 
@@ -309,9 +309,9 @@ void firaol_check_elf(unsigned char *six)
 	for (one = 0; one < 4; one++)
 	{
 		if (six[one] != 127 &&
-			six[one] != 'E' &&
-			six[one] != 'L' &&
-			six[one] != 'F')
+				six[one] != 'E' &&
+				six[one] != 'L' &&
+				six[one] != 'F')
 		{
 			dprintf(STDERR_FILENO, "Error: Not an ELF file\n");
 			exit(98);
