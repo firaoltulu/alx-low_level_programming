@@ -2,7 +2,7 @@
 
 /**
  * key_index - This function gives the index of a key.
- * @key: char pointer that points to the 
+ * @key: char pointer that points to the
  * key to get index for.
  * @size: int that contains the size of the hash table.
  *

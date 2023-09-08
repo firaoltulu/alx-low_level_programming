@@ -13,24 +13,24 @@
  */
 char *hash_table_get(const hash_table_t *ht, const char *key)
 {
-    unsigned long int one;
-    hash_node_t *two;
+	unsigned long int one;
+	hash_node_t *two;
 
-    if (ht == NULL || ht->array == NULL || ht->size == 0 ||
-        key == NULL || strlen(key) == 0)
-    {
-        return (NULL);
-    }
-    else
-    {
-        one = key_index((const unsigned char *)key, ht->size);
-        two = ht->array[one];
-        while (two != NULL)
-        {
-            if (strcmp(two->key, key) == 0)
-                return (two->value);
-            two = two->next;
-        }
-        return (NULL);
-    }
+	if (ht == NULL || ht->array == NULL || ht->size == 0 ||
+			key == NULL || strlen(key) == 0)
+	{
+		return (NULL);
+	}
+	else
+	{
+		one = key_index((const unsigned char *)key, ht->size);
+		two = ht->array[one];
+		while (two != NULL)
+		{
+			if (strcmp(two->key, key) == 0)
+				return (two->value);
+			two = two->next;
+		}
+		return (NULL);
+	}
 }
