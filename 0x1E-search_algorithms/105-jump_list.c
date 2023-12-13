@@ -13,35 +13,35 @@
  */
 listint_t *jump_list(listint_t *list, size_t size, int value)
 {
-    size_t step, two;
-    listint_t *three, *four;
+	size_t step, two;
+	listint_t *three, *four;
 
-    if (list == NULL || size == 0)
-    {
-        return (NULL);
-    }
-    else
-    {
-        step = 0;
-        two = sqrt(size);
-        for (three = four = list; four->index + 1 < size && four->n < value;)
-        {
-            three = four;
-            for (step += two; four->index < step; four = four->next)
-            {
-                if (four->index + 1 == size)
-                    break;
-            }
-            printf("Value checked at index [%ld] = [%d]\n", four->index, four->n);
-        }
+	if (list == NULL || size == 0)
+	{
+		return (NULL);
+	}
+	else
+	{
+		step = 0;
+		two = sqrt(size);
+		for (three = four = list; four->index + 1 < size && four->n < value;)
+		{
+			three = four;
+			for (step += two; four->index < step; four = four->next)
+			{
+				if (four->index + 1 == size)
+					break;
+			}
+			printf("Value checked at index [%ld] = [%d]\n", four->index, four->n);
+		}
 
-        printf("Value found between indexes [%ld] and [%ld]\n",
-               three->index, four->index);
+		printf("Value found between indexes [%ld] and [%ld]\n",
+				three->index, four->index);
 
-        for (; three->index < four->index && three->n < value; three = three->next)
-            printf("Value checked at index [%ld] = [%d]\n", three->index, three->n);
-        printf("Value checked at index [%ld] = [%d]\n", three->index, three->n);
+		for (; three->index < four->index && three->n < value; three = three->next)
+			printf("Value checked at index [%ld] = [%d]\n", three->index, three->n);
+		printf("Value checked at index [%ld] = [%d]\n", three->index, three->n);
 
-        return (three->n == value ? three : NULL);
-    }
+		return (three->n == value ? three : NULL);
+	}
 }

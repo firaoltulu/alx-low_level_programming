@@ -15,32 +15,32 @@
  */
 int binary_search(int *array, size_t size, int value)
 {
-    size_t i, two, three;
+	size_t i, two, three;
 
-    if (array == NULL)
-    {
-        return (-1);
-    }
-    else
-    {
-        for (two = 0, three = size - 1; three >= two;)
-        {
-            printf("Searching in array: ");
-            for (i = two; i < three; i++)
-            {
-                printf("%d, ", array[i]);
-            }
-            printf("%d\n", array[i]);
+	if (array == NULL)
+	{
+		return (-1);
+	}
+	else
+	{
+		for (two = 0, three = size - 1; three >= two;)
+		{
+			printf("Searching in array: ");
+			for (i = two; i < three; i++)
+			{
+				printf("%d, ", array[i]);
+			}
+			printf("%d\n", array[i]);
 
-            i = two + (three - two) / 2;
-            if (array[i] == value)
-                return (i);
-            if (array[i] > value)
-                three = i - 1;
-            else
-                two = i + 1;
-        }
+			i = two + (three - two) / 2;
+			if (array[i] == value)
+				return (i);
+			if (array[i] > value)
+				three = i - 1;
+			else
+				two = i + 1;
+		}
 
-        return (-1);
-    }
+		return (-1);
+	}
 }

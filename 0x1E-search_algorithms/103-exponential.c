@@ -14,32 +14,32 @@
  */
 int Local__binary_search(int *array, size_t one, size_t two, int value)
 {
-    size_t i;
+	size_t i;
 
-    if (array == NULL)
-    {
-        return (-1);
-    }
-    else
-    {
-        while (two >= one)
-        {
-            printf("Searching in array: ");
-            for (i = one; i < two; i++)
-                printf("%d, ", array[i]);
-            printf("%d\n", array[i]);
+	if (array == NULL)
+	{
+		return (-1);
+	}
+	else
+	{
+		while (two >= one)
+		{
+			printf("Searching in array: ");
+			for (i = one; i < two; i++)
+				printf("%d, ", array[i]);
+			printf("%d\n", array[i]);
 
-            i = one + (two - one) / 2;
-            if (array[i] == value)
-                return (i);
-            if (array[i] > value)
-                two = i - 1;
-            else
-                one = i + 1;
-        }
+			i = one + (two - one) / 2;
+			if (array[i] == value)
+				return (i);
+			if (array[i] > value)
+				two = i - 1;
+			else
+				one = i + 1;
+		}
 
-        return (-1);
-    }
+		return (-1);
+	}
 }
 
 /**
@@ -57,24 +57,24 @@ int Local__binary_search(int *array, size_t one, size_t two, int value)
  */
 int exponential_search(int *array, size_t size, int value)
 {
-    size_t i = 0, one;
+	size_t i = 0, one;
 
-    if (array == NULL)
-    {
-        return (-1);
-    }
-    else
-    {
-        if (array[0] != value)
-        {
-            for (i = 1; i < size && array[i] <= value; i = i * 2)
-                printf("Value checked array[%ld] = [%d]\n", i, array[i]);
-        }
-        else
-        {
-            one = i < size ? i : size - 1;
-            printf("Value found between indexes [%ld] and [%ld]\n", i / 2, one);
-            return (Local__binary_search(array, i / 2, one, value));
-        }
-    }
+	if (array == NULL)
+	{
+		return (-1);
+	}
+	else
+	{
+		if (array[0] != value)
+		{
+			for (i = 1; i < size && array[i] <= value; i = i * 2)
+				printf("Value checked array[%ld] = [%d]\n", i, array[i]);
+		}
+		else
+		{
+			one = i < size ? i : size - 1;
+			printf("Value found between indexes [%ld] and [%ld]\n", i / 2, one);
+			return (Local__binary_search(array, i / 2, one, value));
+		}
+	}
 }

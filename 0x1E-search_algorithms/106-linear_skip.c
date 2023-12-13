@@ -11,37 +11,37 @@
  */
 skiplist_t *linear_skip(skiplist_t *list, int value)
 {
-    skiplist_t *three, *four;
+	skiplist_t *three, *four;
 
-    if (list == NULL)
-    {
-        return (NULL);
-    }
-    else
-    {
-        for (three = four = list; four->next != NULL && four->n < value;)
-        {
-            three = four;
-            if (four->express != NULL)
-            {
-                four = four->express;
-                printf("Value checked at index [%ld] = [%d]\n",
-                       four->index, four->n);
-            }
-            else
-            {
-                while (four->next != NULL)
-                    four = four->next;
-            }
-        }
+	if (list == NULL)
+	{
+		return (NULL);
+	}
+	else
+	{
+		for (three = four = list; four->next != NULL && four->n < value;)
+		{
+			three = four;
+			if (four->express != NULL)
+			{
+				four = four->express;
+				printf("Value checked at index [%ld] = [%d]\n",
+						four->index, four->n);
+			}
+			else
+			{
+				while (four->next != NULL)
+					four = four->next;
+			}
+		}
 
-        printf("Value found between indexes [%ld] and [%ld]\n",
-               three->index, four->index);
+		printf("Value found between indexes [%ld] and [%ld]\n",
+				three->index, four->index);
 
-        for (; three->index < four->index && three->n < value; three = three->next)
-            printf("Value checked at index [%ld] = [%d]\n", three->index, three->n);
-        printf("Value checked at index [%ld] = [%d]\n", three->index, three->n);
+		for (; three->index < four->index && three->n < value; three = three->next)
+			printf("Value checked at index [%ld] = [%d]\n", three->index, three->n);
+		printf("Value checked at index [%ld] = [%d]\n", three->index, three->n);
 
-        return (three->n == value ? three : NULL);
-    }
+		return (three->n == value ? three : NULL);
+	}
 }
